@@ -31,7 +31,6 @@ public class Main {
         bmw.info();
         kia.info();
         hyundai.info();
-        System.out.println("Задача 4");
         printSeparetor();
         System.out.println("Конспект");
         Cat murzik = new Cat("Мурзик");
