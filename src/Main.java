@@ -7,10 +7,10 @@ public class Main {
         System.out.println("ДЗ");
         printSeparetor();
         System.out.println("Задача 1");
-        Human maksim = new Human(1988, "Максим", "Минск", "Бред-менеджер");
-        Human anya = new Human(1993, "Аня", "Москва", "Методист образовательных программ");
-        Human katya = new Human(1992, "Катя", "Калининград", "Продакт-менеджер");
-        Human artem = new Human(1995, "Артём", "Москва", "Директор по развитию бизнеса");
+        Human maksim = new Human(1988,"", "Минск", "Бред-менеджер ");
+        Human anya = new Human(1993, "Аня", "Москва", "Методист образовательных программ ");
+        Human katya = new Human(1992, "Катя", "Калининград", "Продакт-менеджер ");
+        Human artem = new Human(1995, "Артём", "Москва", "Директор по развитию бизнеса ");
         maksim.intro();
         anya.intro();
         katya.intro();
@@ -32,6 +32,7 @@ public class Main {
         kia.info();
         hyundai.info();
         printSeparetor();
+
         System.out.println("Конспект");
         Cat murzik = new Cat("Мурзик");
         murzik.age = 3;
@@ -39,5 +40,14 @@ public class Main {
 
         Cat begemot = new Cat("Бегемот", 5);
         begemot.meow();
+
+        murzik.friends = null;
+
+        System.out.println("У кота" + " "  + murzik.name + " " + murzik.getFriends().length + " друзей");
+
+        murzik.addFriend(begemot);
+        System.out.println("У кота" + " " + murzik.name + " " + murzik.getFriends().length + " друзей");
+        murzik.friends[0].meow();
+
     }
 }
