@@ -1,30 +1,51 @@
 public class Human {
-    int yearOfBirth;
+    private int yearOfBirth;
     String name;
-    String town;
+    private String town;
     String jobTitle;
 
-   Human (){
-       int yearOfBirth = 1;
-       name = "Информация не указана";
-       town = "Информация не указана";
-       jobTitle = "Информация не указана";
-   }
 
-    Human(int yearOfBirth, String name, String town, String jobTitle) {
-
-        this.yearOfBirth = yearOfBirth;
+    public Human(int yearOfBirth, String name, String town, String jobTitle) {
+        setYearOfBirth(yearOfBirth);
         this.name = name;
-        this.town = town;
+        if (this.name == null) {
+            this.name = " Информация не указана";
+        }
+        setTown(town);
         this.jobTitle = jobTitle;
-        if (yearOfBirth >= 0) {
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = Math.abs(yearOfBirth);
+            if (this.jobTitle == null) {
+                this.jobTitle = " Информация не указана";
         }
     }
 
     void intro() {
-        System.out.println("Привет! Меня зовут " + name + ". Я из города " + town + " Я родился в " + yearOfBirth + " году. Я работаю на должности" + jobTitle + ". Будем закомы!");
+        System.out.println("Привет! Меня зовут " + name + ". Я из города " + town + " Я родился в " + yearOfBirth + " году. Я работаю на должности " + jobTitle + ". Будем закомы!");
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+        if (yearOfBirth < 0) { // проверка на пустоту в поле
+            this.yearOfBirth = 0; // Использование для пустой строки
+        }
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+        if (this.town == null) {
+            this.town = "Информация не указана";
+        }
+        if (town != null && town.isEmpty() && town.isBlank()) { // проверка на пустоту в поле
+            this.town = town;
+        } else {
+            this.town = "Не указан город рождения"; // Использование для пустой строки
+        }
     }
 }
